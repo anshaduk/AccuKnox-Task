@@ -1,7 +1,8 @@
 Topic: Django Signals
 
 Question 1: By default are django signals executed synchronously or asynchronously? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic. 
-Answer 1: By default , Django signals are executed synchronously.means ,when a signal is sent,all connected receivers,(functions or methods listening for that signal) are called immediately and the main process waits for these receivers to complete before continuing.
+
+Answer 1: By default , Django signals are executed synchronously.means that ,when a signal is sent,all connected receivers,(functions or methods listening for that signal) are called immediately and the main process waits for these receivers to complete before continuing.
 
 # models.py
 from django.db import models
@@ -87,7 +88,7 @@ The example shows that Django signals execute in the same thread as the caller, 
 
 Question 3: By default do django signals run in the same database transaction as the caller? Please support your answer with a code snippet that conclusively proves your stance. The code does not need to be elegant and production ready, we just need to understand your logic.
 
-Answer 3: The Django signals run in the same database transaction as the caller, we can use a simple code snippet that performs database operations in both the main function and the signal receiver, then triggers a rollback to observe the behavior.
+Answer 3: Yes, The Django signals run in the same database transaction as the caller, we can use a simple code snippet that performs database operations in both the main function and the signal receiver, then triggers a rollback to observe the behavior.
 
 # models.py
 from django.db import models
